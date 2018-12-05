@@ -18,6 +18,7 @@ namespace ServiceDesk.Business
 
             return false;
         }
+
         public bool ConsultaPessoa(string Nome, string CPF)
         {
             if (!new PessoaDAO().ConsultaPessoaDAO(Nome, CPF, true))
@@ -45,6 +46,28 @@ namespace ServiceDesk.Business
             }
             
             return true;
+        }
+   
+        public bool ValidaCPFCadastrado(string cpf)
+        {
+            if (string.IsNullOrEmpty(cpf))
+            {
+                throw new Exception("CPF inválido!");
+            }
+            else
+            {
+                PessoaDAO Verifica = new PessoaDAO();
+
+                if (Verifica.VerificaCPFCadastrado(cpf))
+                {
+                    //SE HOUVER USUÁRIO COM O CPF CADASTRADO, RETORNA FALSO = LOGIN INDISPONÍVEL.
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
         }
     }
 }
