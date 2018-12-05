@@ -64,6 +64,8 @@
     <Content Include="Scripts\P_ConsultaPessoa.sql" />
     <Content Include="Scripts\P_FinalizaChamado.sql" />
     <Content Include="Scripts\P_LoginAcesso.sql" />
+    <Content Include="Scripts\P_VerificaCPFCadastrado.sql" />
+    <Content Include="Scripts\P_VerificaLoginCadastrado.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
