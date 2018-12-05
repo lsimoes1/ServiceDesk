@@ -117,7 +117,7 @@ namespace ServiceDesk.DAO
                     _Cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     _Cmd.Parameters.AddWithValue("@CPF", cpf);
 
-                    cadastrado = _Cmd.ExecuteNonQuery();
+                    cadastrado = (int)_Cmd.ExecuteScalar();
 
                     _Con.Close();
                 }

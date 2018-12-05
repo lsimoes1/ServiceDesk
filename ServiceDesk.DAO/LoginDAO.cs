@@ -110,9 +110,9 @@ namespace ServiceDesk.DAO
                     _Con.Open();
 
                     _Cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    _Cmd.Parameters.AddWithValue("@Username", login);
+                    _Cmd.Parameters.AddWithValue("@login", login);
 
-                    cadastrado = _Cmd.ExecuteNonQuery();
+                    cadastrado = (int)_Cmd.ExecuteScalar();
 
                     _Con.Close();
                 }
