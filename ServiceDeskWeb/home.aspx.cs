@@ -58,15 +58,13 @@ namespace ServiceDeskWeb
                     frmNovoCadDescricao.Text = "";
                     SelectValue.SelectedIndex = 0;
 
-                    Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
-                        "<script> M.toast({html: 'Chamado criado com Sucesso!', classes: 'rounded'}) </script>");
+                    MensagemTela("Chamado criado com sucesso!");
 
                     LimpaCampos();
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
-                        "<script> M.toast({html: 'Erro ao criar chamado!', classes: 'rounded'}) </script>");
+                    MensagemTela("Erro: Erro ao criar o chamado!");
                 }
             }
 
@@ -115,16 +113,14 @@ namespace ServiceDeskWeb
                 tbSobrenomeAlteracao.Text = string.Empty;
                 tbEnderecoAlteracao.Text = string.Empty;
 
-                Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
-                        "<script> M.toast({html: 'Cadastro Alterado com Sucesso!', classes: 'rounded'}) </script>");
+                MensagemTela("Cadastro do "+Nome+" alterado com sucesso!");
 
                 LimpaCampos();
 
             }
             catch (Exception)
             {
-                Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
-                        "<script> M.toast({html: 'Erro ao atualizar cadastro!', classes: 'rounded'}) </script>");
+                MensagemTela("Erro: Erro ao atualizar o cadastro do "+ Nome +"!");
             }
 
         }
@@ -169,17 +165,16 @@ namespace ServiceDeskWeb
                     updatePanelAlteraCadastro.Update();
                     ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "User", "EfeitoGrid()", true);
                 }
+                
+                MensagemTela("Info: Não há usuário cadastrado!");
 
-                Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
-                "<script> M.toast({html: 'Não há usuário cadastrado!, classes: 'rounded'}) </script>");
                 updatePanelAlteraCadastro.Update();
                 ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "User", "RetornaConsultaCadastro()", true);
 
             }
             catch (Exception)
             {
-                Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
-                 "<script> M.toast({html: 'Erro ao consultar o cadastro!, classes: 'rounded'}) </script>");
+                MensagemTela("Erro: Erro ao consultar o cadastro do "+ ConsultaPessoaMODEL.Nome + "!");
                 ScriptManager.RegisterClientScriptBlock(Page, Page.GetType(), "User", "RetornaConsultaCadastro()", true);
             }
         }
@@ -195,8 +190,7 @@ namespace ServiceDeskWeb
 
             if (Encerra.FinalizaChamado(TratativaModalEncerraChamado.Text))
             {
-                Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
-                "<script> M.toast({html: 'Chamado Encerrado!', classes: 'rounded'}) </script>");
+                MensagemTela("Chamado " + ChamadosMODEL.Id_Chamado.ToString() + " encerrado!");
 
                 LimpaCampos();
 
@@ -205,8 +199,7 @@ namespace ServiceDeskWeb
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
-                "<script> M.toast({html: 'Erro ao encerrar o chamado!, classes: 'rounded'}) </script>");
+                MensagemTela("Erro: Erro ao encerrar o chamado "+ ChamadosMODEL.Id_Chamado.ToString() + "!");
             }
         }
 
@@ -225,22 +218,19 @@ namespace ServiceDeskWeb
 
                 if (chamado.AlteraChamado())
                 {
-                    Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
-                        "<script> M.toast({html: 'Chamado Alterado com sucesso!', classes: 'rounded'}) </script>");
+                    MensagemTela("Chamado " + ChamadosMODEL.Id_Chamado.ToString() + " alterado com sucesso!");
 
                     GridChamados.DataSource = chamado.ConsultaChamado();
                     GridChamados.DataBind();
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
-                        "<script> M.toast({html: 'Erro ao atualizar o chamado!', classes: 'rounded'}) </script>");
+                    MensagemTela("Erro: Erro ao atualizar o chamado" + ChamadosMODEL.Id_Chamado.ToString() + "!");
                 }
             }
             catch (Exception)
             {
-                Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
-                        "<script> M.toast({html: 'Erro ao alterar o chamado!', classes: 'rounded'}) </script>");
+                MensagemTela("Erro: Erro ao alterar o chamado "+ ChamadosMODEL.Id_Chamado.ToString() + "!");
             }
         }
 
@@ -275,19 +265,17 @@ namespace ServiceDeskWeb
                     {
                         CadastroLogin.CadastraLogin(_login, "123", _nome, _sobrenome, _cpf, _endereco, _sexo, _tipoUsuario);
 
-                        Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
-                       "<script> M.toast({html: 'Login Cadastrado!', classes: 'rounded'}) </script>");
+                        MensagemTela("Login cadastrado!");
                     }
                     else
                     {
-                        Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
-                       "<script> M.toast({html: 'CPF Já cadastrado!', classes: 'rounded'}) </script>");
+                        MensagemTela("Erro: CPF já cadastrado!");
+                        tbCpfNovoCad.Focus();
                     }
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
-                        "<script> M.toast({html: 'Login indisponível!', classes: 'rounded'}) </script>");
+                    MensagemTela("Erro: Login já cadastrado!");
 
                     tbLoginNovoCad.Focus();
                 }
@@ -295,8 +283,7 @@ namespace ServiceDeskWeb
             }
             catch (Exception ex)
             {
-                Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
-                        "<script> M.toast({html: '"+ex.Message+"', classes: 'rounded'}) </script>");
+                MensagemTela("Erro: " + ex.Message);
             }
         }
 
@@ -310,7 +297,11 @@ namespace ServiceDeskWeb
             frmNovoCadDescricao.Text = "";
             tbEnderecoAlteracao.Text = "";
             SelectTipoUsuario.SelectedIndex = 0;
-
+        }
+        protected void MensagemTela(string Msg)
+        {
+            Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
+                        "<script> M.toast({html: '"+ Msg +"', classes: 'rounded'}) </script>");
         }
     }
 }
