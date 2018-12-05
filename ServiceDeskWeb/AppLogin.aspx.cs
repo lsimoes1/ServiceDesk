@@ -20,7 +20,7 @@ namespace ServiceDeskWeb
         protected void btnEntrar_Click(object sender, EventArgs e)
         {
             string _Psw = password.Text;
-            string _Login = login.Text;
+            string _Login = tbLogin.Text;
 
             Login Acessa = new Login();
 

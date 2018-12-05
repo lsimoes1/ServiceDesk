@@ -45,8 +45,8 @@
             <form class="col s12 frmLoginInputs" id="formLogin" runat="server">
                 <div class="row">
                     <div class="input-field col s12">
-                        <asp:TextBox runat="server" ID="login" class="validate" />
-                        <label for="login">Login</label>
+                        <asp:TextBox runat="server" ID="tbLogin" class="validate" />
+                        <label for="tbLogin">Login</label>
                     </div>
                 </div>
                 <div class="row">
