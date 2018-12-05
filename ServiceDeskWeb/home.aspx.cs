@@ -276,7 +276,12 @@ namespace ServiceDeskWeb
                         CadastroLogin.CadastraLogin(_login, "123", _nome, _sobrenome, _cpf, _endereco, _sexo, _tipoUsuario);
 
                         Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
-                       "<script> M.toast({html: 'Login indisponível!', classes: 'rounded'}) </script>");
+                       "<script> M.toast({html: 'Login Cadastrado!', classes: 'rounded'}) </script>");
+                    }
+                    else
+                    {
+                        Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
+                       "<script> M.toast({html: 'CPF Já cadastrado!', classes: 'rounded'}) </script>");
                     }
                 }
                 else
