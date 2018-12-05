@@ -14,6 +14,8 @@ CREATE PROCEDURE P_VerificaLoginCadastrado
 AS
 BEGIN
 	
+	SET NOCOUNT OFF
+
 	Select Count(L.Usuario)
 	From ServiceDeskDB.Dbo.T_Login As	L	
 	Where (L.usuario = @Login)

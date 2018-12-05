@@ -14,6 +14,8 @@ ALTER PROCEDURE P_VerificaCPFCadastrado
 AS
 BEGIN
 	
+	SET NOCOUNT OFF
+
 	Select Count(usu.CPF)
 	From ServiceDeskDB.Dbo.T_Usuario As	Usu	
 	Where (usu.CPF = @CPF)
