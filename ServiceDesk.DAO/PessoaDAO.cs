@@ -102,5 +102,42 @@ namespace ServiceDesk.DAO
                 return true;
             }
         }
+
+        public bool VerificaCPFCadastrado(string cpf)
+        {
+            int cadastrado = 0;
+            try
+            {
+                using (SqlConnection _Con = new SqlConnection(ConfigurationManager.ConnectionStrings["DbChamados"].ConnectionString))
+                {
+                    SqlCommand _Cmd = new SqlCommand("P_VerificaCPFCadastrado", _Con);
+
+                    _Con.Open();
+
+                    _Cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    _Cmd.Parameters.AddWithValue("@CPF", cpf);
+
+                    cadastrado = _Cmd.ExecuteNonQuery();
+
+                    _Con.Close();
+                }
+
+                if (cadastrado > 0)
+                {
+                    //TEM USUÁRIO CADASTRADO COM O MESMO CPF
+                    return true;
+                }
+                else
+                {
+                    //NÃO TEM USUÁRIO CADASTRADO COM O MESMO CPF
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

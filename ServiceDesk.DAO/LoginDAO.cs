@@ -61,7 +61,6 @@ namespace ServiceDesk.DAO
             return LoginMODEL.Acesso;
         }
 
-
         public void CadastrarLogin()
         {
             using (TransactionScope scope = new TransactionScope())
@@ -97,6 +96,40 @@ namespace ServiceDesk.DAO
                 scope.Complete();
                
             }            
+        }
+
+        public bool VerificaLoginCadastrado(string login)
+        {
+            int cadastrado = 0;
+            try
+            {
+                using (SqlConnection _Con = new SqlConnection(ConfigurationManager.ConnectionStrings["DbChamados"].ConnectionString))
+                {
+                    SqlCommand _Cmd = new SqlCommand("P_VerificaLoginCadastrado", _Con);
+
+                    _Con.Open();
+
+                    _Cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    _Cmd.Parameters.AddWithValue("@Username", login);
+
+                    cadastrado = _Cmd.ExecuteNonQuery();
+
+                    _Con.Close();
+                }
+
+                if (cadastrado > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
