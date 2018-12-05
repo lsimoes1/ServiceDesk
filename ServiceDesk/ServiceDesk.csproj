@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{13776A72-1B54-41B3-9480-02AC4E04598A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ServiceDesk</RootNamespace>
+    <AssemblyName>ServiceDesk</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Formulários\Cadastro\frm_AlterarCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\Cadastro\frm_AlterarCadastro.Designer.cs">
+      <DependentUpon>frm_AlterarCadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\Cadastro\Frm_CadastrarLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\Cadastro\Frm_CadastrarLogin.Designer.cs">
+      <DependentUpon>Frm_CadastrarLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\Acesso\frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\Acesso\frm_Login.Designer.cs">
+      <DependentUpon>frm_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\Chamados\frm_NovoChamado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\Chamados\frm_NovoChamado.Designer.cs">
+      <DependentUpon>frm_NovoChamado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulários\Chamados\frm_ServiceDesk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulários\Chamados\frm_ServiceDesk.Designer.cs">
+      <DependentUpon>frm_ServiceDesk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formulários\Cadastro\frm_AlterarCadastro.pt-BR.resx">
+      <DependentUpon>frm_AlterarCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\Cadastro\frm_AlterarCadastro.resx">
+      <DependentUpon>frm_AlterarCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\Cadastro\Frm_CadastrarLogin.resx">
+      <DependentUpon>Frm_CadastrarLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\Acesso\frm_Login.resx">
+      <DependentUpon>frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\Chamados\frm_NovoChamado.resx">
+      <DependentUpon>frm_NovoChamado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulários\Chamados\frm_ServiceDesk.resx">
+      <DependentUpon>frm_ServiceDesk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceDesk.Business\ServiceDesk.Business.csproj">
+      <Project>{09724a99-8c7a-47f9-bae1-032a36b86f54}</Project>
+      <Name>ServiceDesk.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceDesk.DAO\ServiceDesk.DAO.csproj">
+      <Project>{2e2114cd-b2b6-44e9-82b6-9a2a0d241cad}</Project>
+      <Name>ServiceDesk.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceDesk.MODEL\ServiceDesk.MODEL.csproj">
+      <Project>{9e8f2c2a-9be6-4bf0-860d-2b946b4ec1b6}</Project>
+      <Name>ServiceDesk.MODEL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
