@@ -11,7 +11,6 @@ namespace ServiceDesk.Business
 {
     public class Login
     {
-
         public Boolean AcessaLogin(string _Username, string _Pwd)
         {
             LoginDAO Acessar = new LoginDAO();
@@ -52,7 +51,7 @@ namespace ServiceDesk.Business
             {
                 CadastroLoginMODEL.TipoUsuario = 1;
             }
-            else if (TipoUsuario.Equals("Ti / Suporte"))
+            else if (TipoUsuario.Contains("Ti") || TipoUsuario.Contains("Suporte"))
             {
                 CadastroLoginMODEL.TipoUsuario = 2;
             }
@@ -74,6 +73,28 @@ namespace ServiceDesk.Business
                 throw new Exception(ex.Message);
             }
 
+        }
+
+        public bool VerificaLoginCadastrado(string login)
+        {
+            if (string.IsNullOrEmpty(login))
+            {
+                throw new Exception("Campo inválido!");
+            }
+            else
+            {
+                LoginDAO Verifica = new LoginDAO();
+
+                if(Verifica.VerificaLoginCadastrado(login))
+                {
+                    //SE HOUVER USUÁRIO COM O LOGIN CADASTRADO, RETORNA FALSO = LOGIN INDISPONÍVEL.
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
         }
     }
 }
