@@ -243,17 +243,55 @@ namespace ServiceDeskWeb
                         "<script> M.toast({html: 'Erro ao alterar o chamado!', classes: 'rounded'}) </script>");
             }
         }
+
         protected void btnNovoCadastro_Click(object sender, EventArgs e)
         {
-            int Sex = 0;
+            string _sexo;
+            string _login = tbLoginNovoCad.Text;
+            string _nome = tbNomeNovoCad.Text;
+            string _sobrenome = tbSobrenomeNovoCad.Text;
+            string _cpf = tbCpfNovoCad.Text;
+            string _tipoUsuario = selectTipoUsuNovoCad.Value;
+            string _endereco = tbEndNovoCad.Text;
 
             if (ckF.Checked)
             {
-                Sex = 1;
+                _sexo = "F";
             }
             else
             {
-                Sex = 2;
+                _sexo = "M";
+            }
+
+            try
+            {
+                ServiceDesk.Business.Login CadastroLogin = new ServiceDesk.Business.Login();
+
+                if(CadastroLogin.VerificaLoginCadastrado(_login))
+                {
+                    Pessoa CadastroPessoa = new Pessoa();
+
+                    if (CadastroPessoa.ValidaCPFCadastrado(_cpf))
+                    {
+                        CadastroLogin.CadastraLogin(_login, "123", _nome, _sobrenome, _cpf, _endereco, _sexo, _tipoUsuario);
+
+                        Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
+                       "<script> M.toast({html: 'Login indisponível!', classes: 'rounded'}) </script>");
+                    }
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
+                        "<script> M.toast({html: 'Login indisponível!', classes: 'rounded'}) </script>");
+
+                    tbLoginNovoCad.Focus();
+                }
+             
+            }
+            catch (Exception ex)
+            {
+                Page.ClientScript.RegisterStartupScript(System.Type.GetType("System.String"), "script",
+                        "<script> M.toast({html: '"+ex.Message+"', classes: 'rounded'}) </script>");
             }
         }
 
