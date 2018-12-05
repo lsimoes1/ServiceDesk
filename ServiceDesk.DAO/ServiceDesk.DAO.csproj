@@ -54,5 +54,16 @@
       <Name>ServiceDesk.MODEL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\Criação dos Objetos.sql" />
+    <Content Include="Scripts\P_AbrirChamado.sql" />
+    <Content Include="Scripts\P_AtualizaCadastro.sql" />
+    <Content Include="Scripts\P_AtualizaChamados.sql" />
+    <Content Include="Scripts\P_CadastraLogin.sql" />
+    <Content Include="Scripts\P_ConsultaChamados.sql" />
+    <Content Include="Scripts\P_ConsultaPessoa.sql" />
+    <Content Include="Scripts\P_FinalizaChamado.sql" />
+    <Content Include="Scripts\P_LoginAcesso.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
