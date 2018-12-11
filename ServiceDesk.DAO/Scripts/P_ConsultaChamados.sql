@@ -1,6 +1,6 @@
-Use ServiceDeskDB
-Go
-
+USE [ServiceDeskDB]
+GO
+/****** Object:  StoredProcedure [dbo].[P_ConsultaChamados]    Script Date: 11/12/2018 18:54:32 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -13,7 +13,7 @@ GO
 --	Exec P_ConsultaChamados 3, 'admin'
 
 -- =============================================
-Alter PROCEDURE P_ConsultaChamados 
+ALTER PROCEDURE [dbo].[P_ConsultaChamados] 
 	@TipoUsuario Int = Null
 	,@Usuario	Varchar(100)
 AS
@@ -29,7 +29,6 @@ BEGIN
 		,c.Tratativa
 	From T_Usuario		As	U
 	Join T_Chamados		As	C	On	U.ID = C.ID_Usuario
-	Where U.Nome = IIF(@TipoUsuario != 3, @Usuario, u.nome)
+	Where U.Nome = IIF(@TipoUsuario In (1), @Usuario, u.nome)
 
 END
-GO

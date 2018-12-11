@@ -296,5 +296,10 @@ namespace ServiceDesk
         }
 
         #endregion
+
+        private void lklAtualizar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgv_Chamados.DataSource = new Chamado().ConsultaChamado();
+        }
     }
 }

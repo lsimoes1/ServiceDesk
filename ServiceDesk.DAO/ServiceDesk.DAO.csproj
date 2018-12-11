@@ -55,6 +55,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\Ambiente.sql" />
     <Content Include="Scripts\Criação dos Objetos.sql" />
     <Content Include="Scripts\P_AbrirChamado.sql" />
     <Content Include="Scripts\P_AtualizaCadastro.sql" />

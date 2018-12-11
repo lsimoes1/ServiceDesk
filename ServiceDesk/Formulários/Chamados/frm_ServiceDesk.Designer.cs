@@ -67,6 +67,7 @@
             this.btn_Salvar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Encerra = new System.Windows.Forms.Button();
+            this.lklAtualizar = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Chamados)).BeginInit();
@@ -143,10 +144,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lklAtualizar);
             this.groupBox1.Controls.Add(this.dgv_Chamados);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(837, 217);
+            this.groupBox1.Size = new System.Drawing.Size(837, 245);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chamado";
@@ -167,7 +169,7 @@
             this.tssl_Usuario,
             this.toolStripStatusLabel2,
             this.tssl_TipoUsuario});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 534);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 554);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(855, 22);
             this.statusStrip1.TabIndex = 2;
@@ -219,7 +221,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.tb_Solicitante);
-            this.groupBox2.Location = new System.Drawing.Point(12, 250);
+            this.groupBox2.Location = new System.Drawing.Point(12, 278);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(837, 198);
             this.groupBox2.TabIndex = 6;
@@ -383,7 +385,7 @@
             // 
             // Btn_AbrirChamado
             // 
-            this.Btn_AbrirChamado.Location = new System.Drawing.Point(130, 488);
+            this.Btn_AbrirChamado.Location = new System.Drawing.Point(130, 516);
             this.Btn_AbrirChamado.Name = "Btn_AbrirChamado";
             this.Btn_AbrirChamado.Size = new System.Drawing.Size(107, 23);
             this.Btn_AbrirChamado.TabIndex = 12;
@@ -395,7 +397,7 @@
             // 
             this.btn_EncerrarChamado.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_EncerrarChamado.Enabled = false;
-            this.btn_EncerrarChamado.Location = new System.Drawing.Point(580, 488);
+            this.btn_EncerrarChamado.Location = new System.Drawing.Point(580, 516);
             this.btn_EncerrarChamado.Name = "btn_EncerrarChamado";
             this.btn_EncerrarChamado.Size = new System.Drawing.Size(107, 23);
             this.btn_EncerrarChamado.TabIndex = 14;
@@ -406,7 +408,7 @@
             // btn_AlterarChamado
             // 
             this.btn_AlterarChamado.Enabled = false;
-            this.btn_AlterarChamado.Location = new System.Drawing.Point(355, 488);
+            this.btn_AlterarChamado.Location = new System.Drawing.Point(355, 516);
             this.btn_AlterarChamado.Name = "btn_AlterarChamado";
             this.btn_AlterarChamado.Size = new System.Drawing.Size(107, 23);
             this.btn_AlterarChamado.TabIndex = 13;
@@ -422,7 +424,7 @@
             this.btn_Salvar.FlatAppearance.BorderSize = 0;
             this.btn_Salvar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btn_Salvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Salvar.Location = new System.Drawing.Point(12, 447);
+            this.btn_Salvar.Location = new System.Drawing.Point(12, 475);
             this.btn_Salvar.Name = "btn_Salvar";
             this.btn_Salvar.Size = new System.Drawing.Size(41, 44);
             this.btn_Salvar.TabIndex = 10;
@@ -438,7 +440,7 @@
             this.btn_Cancelar.FlatAppearance.BorderSize = 0;
             this.btn_Cancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Cancelar.Location = new System.Drawing.Point(808, 447);
+            this.btn_Cancelar.Location = new System.Drawing.Point(808, 475);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(41, 44);
             this.btn_Cancelar.TabIndex = 11;
@@ -454,7 +456,7 @@
             this.btn_Encerra.FlatAppearance.BorderSize = 0;
             this.btn_Encerra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.btn_Encerra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Encerra.Location = new System.Drawing.Point(12, 447);
+            this.btn_Encerra.Location = new System.Drawing.Point(12, 475);
             this.btn_Encerra.Name = "btn_Encerra";
             this.btn_Encerra.Size = new System.Drawing.Size(41, 44);
             this.btn_Encerra.TabIndex = 15;
@@ -462,11 +464,22 @@
             this.btn_Encerra.Visible = false;
             this.btn_Encerra.Click += new System.EventHandler(this.btn_Encerra_Click);
             // 
+            // lklAtualizar
+            // 
+            this.lklAtualizar.AutoSize = true;
+            this.lklAtualizar.Location = new System.Drawing.Point(776, 220);
+            this.lklAtualizar.Name = "lklAtualizar";
+            this.lklAtualizar.Size = new System.Drawing.Size(47, 13);
+            this.lklAtualizar.TabIndex = 1;
+            this.lklAtualizar.TabStop = true;
+            this.lklAtualizar.Text = "Atualizar";
+            this.lklAtualizar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lklAtualizar_LinkClicked);
+            // 
             // frm_ServiceDesk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(855, 556);
+            this.ClientSize = new System.Drawing.Size(855, 576);
             this.Controls.Add(this.btn_Encerra);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Salvar);
@@ -488,6 +501,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Chamados)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -538,5 +552,6 @@
         private System.Windows.Forms.ToolStripMenuItem alterarCadastroToolStripMenuItem;
         private System.Windows.Forms.TextBox tb_Servico;
         private System.Windows.Forms.Button btn_Encerra;
+        private System.Windows.Forms.LinkLabel lklAtualizar;
     }
 }
